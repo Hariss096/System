@@ -22,7 +22,7 @@ vector<Process>& System::Processes() {
     vector<Process> processes{};
     auto process_ids = LinuxParser::Pids();
     for (int id : process_ids) {
-        Process pro{id};
+        Process pro{id, UpTime()};
         processes.push_back(pro);
     }
     sort(processes.rbegin(), processes.rend());

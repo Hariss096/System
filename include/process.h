@@ -8,7 +8,7 @@ It contains relevant attributes as shown below
 */
 class Process {
  public:
-  Process(int pid);
+  Process(int pid, long int uptime);
   int Pid();                             
   std::string User();                    
   std::string Command();                 
@@ -21,6 +21,7 @@ class Process {
  private:
     int pid_;
     float cpuUse_;
+    long int uptime_;
     enum procInfoTimes {
         utime_ = 0, 
         stime_, 

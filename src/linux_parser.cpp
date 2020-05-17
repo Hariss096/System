@@ -72,7 +72,7 @@ float LinuxParser::MemoryUtilization() {
   string key;
   string value;
   float totalMemory, freeMemory;
-  std::ifstream filestream(kMeminfoFilename);
+  std::ifstream filestream(kProcDirectory + kMeminfoFilename);
   if (filestream.is_open()) {
     while (std::getline(filestream, line)) {
       std::replace(line.begin(), line.end(), ':', ' ');

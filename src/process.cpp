@@ -20,7 +20,7 @@ Process::Process(const int pid, long int uptime) : pid_(pid), uptime_(uptime) {
         float total_time = procData[procInfoTimes::utime_] + procData[procInfoTimes::stime_] +
                                 procData[procInfoTimes::cutime_] + procData[procInfoTimes::cstime_];
         float seconds = uptime_ - procData[procInfoTimes::starttime_];
-        cpuUse_ = (total_time / sysconf(_SC_CLK_TCK)) / seconds);
+        cpuUse_ = (total_time / sysconf(_SC_CLK_TCK) / seconds);
     } else {
         cpuUse_ = 0;
     }

@@ -21,8 +21,9 @@ Processor& System::Cpu() { return cpu_; }
 vector<Process>& System::Processes() { 
     vector<Process> processes{};
     auto process_ids = LinuxParser::Pids();
+    long int uptime = UpTime();
     for (int id : process_ids) {
-        Process pro{id, UpTime()};
+        Process pro{id, uptime};
         processes.push_back(pro);
     }
     sort(processes.rbegin(), processes.rend());
